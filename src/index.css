@@ -1,0 +1,329 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px; /* Tamanho mínimo de fonte */
+  line-height: 1.5; /* Line height acessível */
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #222; /* Contraste melhorado para modo claro */
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-size: 1rem;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #111827; /* Gray 900 do Tailwind, modo claro */
+}
+.dark h1 {
+  color: #fff; /* Branco no modo escuro */
+}
+
+h2 {
+  color: #111827; /* Gray 900 do Tailwind, modo claro */
+}
+.dark h2 {
+  color: #fff; /* Branco no modo escuro */
+}
+
+button,
+[role='button'],
+.focusable,
+input,
+select,
+textarea,
+a {
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+button:focus-visible,
+[role='button']:focus-visible,
+.focusable:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  /* box-shadow: 0 0 0 3px #005fcc, 0 0 0 6px #fff; */
+  /* border-color: #005fcc; */
+  outline: none;
+  z-index: 2;
+}
+button:active,
+[role='button']:active {
+  box-shadow: 0 0 0 2px #005fcc inset;
+}
+
+/* Indicadores não só por cor */
+button[aria-pressed='true'],
+.active {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #005fcc;
+  position: relative;
+}
+button[aria-pressed='true']::after,
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #005fcc;
+}
+
+/* Contraste para modo escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f5f5f5;
+    background-color: #181818;
+  }
+  body {
+    background: #181818;
+    color: #f5f5f5;
+  }
+}
+
+/* Badges e elementos informativos: não só cor */
+.badge[aria-label],
+.badge[role='status'] {
+  border-bottom: 2px dotted #005fcc;
+}
+
+/* Placeholder com contraste */
+::placeholder {
+  color: #666 !important;
+  opacity: 1;
+}
+
+/* Links com contraste */
+a {
+  color: #005fcc;
+}
+a:hover,
+a:focus {
+  color: #003366;
+  text-decoration: underline;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #9e9e9e;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:hover,
+[role='button']:hover,
+button[aria-pressed='true'],
+[role='button'][aria-pressed='true'],
+button.selected,
+[role='button'].selected {
+  background-color: #d1d5db !important; /* Gray 300 do Tailwind */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@layer base {
+  :root {
+    /* --background: 0 0% 100%; */
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 80%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    /* --background: 0 0% 3.9%; */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .bg-background {
+    /* background-color: hsl(var(--background)); */
+  }
+  .bg-primary {
+    /* background-color: hsl(var(--primary)); */
+  }
+}
+
+.font-medium {
+  color: #000; /* Preto no modo claro */
+}
+.dark .font-medium {
+  color: #fff; /* Branco no modo escuro */
+}
+
+.help-modal-bg {
+  background: rgba(30, 30, 30, 0.97) !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.25);
+}
+.help-modal-content {
+  color: #fff !important;
+}
+.help-modal-content kbd {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  font-weight: 700;
+  padding: 0.25em 0.75em;
+  border-radius: 6px;
+  font-size: 1em;
+}
+.dark .help-modal-bg {
+  background: rgba(30, 30, 30, 0.98) !important;
+  border: 1px solid #444 !important;
+}
+.dark .help-modal-content {
+  color: #fff !important;
+}
+.dark .help-modal-content kbd {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Botão X simples para fechar modal de ajuda */
+.help-modal-bg .close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  z-index: 10;
+  padding: 0;
+}
+.help-modal-bg .close-modal-btn:hover,
+.help-modal-bg .close-modal-btn:focus {
+  opacity: 1;
+  outline: 2px solid #fff;
+}
+.dark .help-modal-bg .close-modal-btn {
+  color: #fff;
+}
+
+/* Título do modal de ajuda sempre branco */
+.help-modal-content .dialog-title {
+  color: #fff !important;
+}
+
+/* Esconde o botão de fechar padrão do Dialog apenas no modal de ajuda */
+.help-modal-bg [data-radix-dialog-close] {
+  display: none !important;
+}
