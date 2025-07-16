@@ -12,16 +12,14 @@ import {
   CommandSeparator,
   CommandDialog,
 } from './components/ui/command';
+import { Dialog } from './components/ui/dialog';
 import {
-  Dialog,
-  DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
 } from './components/ui/dialog';
 import { Input } from './components/ui/input';
 import { Separator } from './components/ui/separator';
-import { Switch } from './components/ui/switch';
 import {
   Tooltip,
   TooltipContent,
@@ -33,12 +31,11 @@ import {
   Plus,
   Trash2,
   Pencil,
-  Check,
-  X,
+  HelpCircle,
   Sun,
   Moon,
   Sparkles,
-  HelpCircle,
+  X,
 } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 

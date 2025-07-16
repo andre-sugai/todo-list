@@ -6,7 +6,7 @@ import {
   CommandItem,
   CommandEmpty,
 } from '@/components/ui/command';
-import { Plus, Sparkles, Search } from 'lucide-react';
+import { Plus, Sparkles } from 'lucide-react';
 import React, { useState } from 'react';
 
 interface CommandAddTaskProps {
@@ -76,7 +76,7 @@ export const CommandAddTask: React.FC<CommandAddTaskProps> = ({
         className="flex gap-2 items-center"
       >
         <span className="text-muted-foreground pl-1">
-          <Search className="w-4 h-4" />
+          {/* <Search className="w-4 h-4" /> */}
         </span>
         <CommandInput
           value={input}
@@ -106,7 +106,7 @@ export const CommandAddTask: React.FC<CommandAddTaskProps> = ({
                 s.toLowerCase() !== input.toLowerCase()
             )
             .slice(0, 5)
-            .map((s, i) => (
+            .map((s, _) => (
               <CommandItem
                 key={s}
                 onSelect={() => handleAdd(s)}
